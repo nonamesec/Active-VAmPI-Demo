@@ -3,7 +3,7 @@ on:
     inputs:
       ACTIVE_API_URL:
         description: 'The URL of the scanner settings'
-        default: 'https://localhost.nonamesec.com/active'
+        default: 'https://demo-stable.nonamesec.com/active'
         required: false
         type: string
       ACTIVE_SEVERITY_THRESHOLD:
@@ -19,8 +19,13 @@ on:
           - none
       ACTIVE_TEST_SUITE_ID:
         description: The Test suite id to be scanned.
-        default: <your-test-suite-id>
+        default: 9d85ac92-a578-423c-93e2-7b2844bfe841
         required: true
+        type: string
+      ACTIVE_BASE_URL:
+        description: The Base URL for the App.
+        default: ''
+        required: false
         type: string
 jobs:
   scan:
