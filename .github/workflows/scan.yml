@@ -24,7 +24,7 @@ on:
         type: string
       ACTIVE_BASE_URL:
         description: The Base URL for the App.
-        default: 'http://52.70.147.230:5002'
+        default: 'http://vampi-loadb-sj5v37xsmn4s-055b99a062eb8c7e.elb.us-east-1.amazonaws.com:5000'
         required: false
         type: string
 jobs:
