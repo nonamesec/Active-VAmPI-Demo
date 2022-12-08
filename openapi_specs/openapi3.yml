@@ -7,23 +7,6 @@ servers:
   - url: http://localhost:5000
 components: {}
 paths:
-  /createdb:
-    get:
-      tags:
-        - db-init
-      summary: Creates and populates the database with dummy data
-      description: Creates and populates the database with dummy data
-      operationId: api_views.main.populate_db
-      responses:
-        '200':
-          description: Creates and populates the database with dummy data
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
   /:
     get:
       tags:
@@ -95,6 +78,7 @@ paths:
                       type: string
   /users/v1/register:
     post:
+      x-wait-after: 500
       tags:
         - users
       summary: Register new user
@@ -432,6 +416,7 @@ paths:
           required: true
           schema:
             type: string
+            example: bookTitle40
       responses:
         '200':
           description: Successfully retrieve book info
@@ -472,4 +457,30 @@ paths:
                     enum: ['fail']
                   message:
                     type: string
-
+x-active-deps:
+  - consumer: 
+      in: "path"
+      method: "GET"
+      parameter: "book_title"
+      path: "/books/v1/{book_title}"
+    producer:
+      in: "body"
+      location: "/book_title"
+      method: "POST"
+      path: "/books/v1"
+      fromRequest: true
+  - consumers:
+    - in: "path"
+      methods: ["GET", "DELETE"]
+      parameter: "username"
+      path: "/users/v1/{username}"
+    - in: "path"
+      method: "PUT"
+      parameter: "username"
+      path: "/users/v1/{username}/password"
+    producer:
+      in: "body"
+      location: "/username"
+      method: "POST"
+      path: "/users/v1/register"
+      fromRequest: true
