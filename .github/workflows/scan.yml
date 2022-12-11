@@ -24,7 +24,7 @@ on:
         type: string
       ACTIVE_BASE_URL:
         description: The Base URL for the App.
-        default: 'http://localhost:5002'
+        default: 'http://host.docker.internal:5002'
         required: false
         type: string
 jobs:
@@ -39,7 +39,7 @@ jobs:
         run: docker compose up -d 
       
       - name: test vampi
-        run: sleep 15 && curl -k http://localhost:5002/
+        run: sleep 15 && curl -k http://host.docker.internal:5000/openapi.json
 
       - name: docker login
         uses: docker/login-action@v1
