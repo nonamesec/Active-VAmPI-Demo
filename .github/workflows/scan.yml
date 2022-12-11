@@ -32,6 +32,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: run vampi
+        run: docker compose up -d 
+      
+      - name: test vampi
+        run: curl -k http://localhost:5002/
+        
       - name: checkout
         uses: actions/checkout@v2
 
