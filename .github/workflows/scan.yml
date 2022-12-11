@@ -19,7 +19,7 @@ on:
           - none
       ACTIVE_TEST_SUITE_ID:
         description: The Test suite id to be scanned.
-        default: 9d85ac92-a578-423c-93e2-7b2844bfe841
+        default: addfbbda-3e27-470d-b80d-bec514e089aa
         required: true
         type: string
       ACTIVE_BASE_URL:
