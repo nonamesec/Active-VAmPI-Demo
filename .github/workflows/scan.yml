@@ -59,6 +59,9 @@ jobs:
           --test-suite-id=${{ github.event.inputs.ACTIVE_TEST_SUITE_ID }} \
           --severity-threshold=${{ github.event.inputs.ACTIVE_SEVERITY_THRESHOLD }} \
           --base-url=${{ github.event.inputs.ACTIVE_BASE_URL }}
+        
+      - name: check docker
+        run: curl -k http://vampi:5002 && curl -k http://vampi-vulnerable:5002
 
   deploy:
     needs: scan
