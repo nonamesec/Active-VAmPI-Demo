@@ -52,7 +52,7 @@ jobs:
         run: |
           docker run \
           --pull always \
-          --network host \
+          --net=host \
           jfrog.cicd.nonamesec.com/noname-docker-release/active-cli:$(curl -k ${{github.event.inputs.ACTIVE_API_URL}}/backend/version) \
           scan \
           --api-url=${{ github.event.inputs.ACTIVE_API_URL }} \
