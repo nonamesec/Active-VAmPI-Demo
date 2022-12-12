@@ -24,7 +24,7 @@ on:
         type: string
       ACTIVE_BASE_URL:
         description: The Base URL for the App.
-        default: 'http://localhost:5000'
+        default: 'http://localhost:5002'
         required: false
         type: string
 jobs:
