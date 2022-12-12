@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - master
 env:
   ACTIVE_API_URL: 'https://demo-stable.nonamesec.com/active'
   ACTIVE_SEVERITY_THRESHOLD: medium
