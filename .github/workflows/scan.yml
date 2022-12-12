@@ -24,7 +24,7 @@ on:
         type: string
       ACTIVE_BASE_URL:
         description: The Base URL for the App.
-        default: 'http://vampi-vulnerable:5002'
+        default: 'http://vampi-vulnerable:5000'
         required: false
         type: string
 jobs:
@@ -52,6 +52,7 @@ jobs:
         run: |
           docker run \
           --pull always \
+          --network host
           jfrog.cicd.nonamesec.com/noname-docker-release/active-cli:$(curl -k ${{github.event.inputs.ACTIVE_API_URL}}/backend/version) \
           scan \
           --api-url=${{ github.event.inputs.ACTIVE_API_URL }} \
