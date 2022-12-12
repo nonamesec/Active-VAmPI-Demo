@@ -61,7 +61,7 @@ jobs:
           --base-url=${{ github.event.inputs.ACTIVE_BASE_URL }}
         
       - name: check docker
-        run: curl -k http://vampi-vulnerable:5002
+        run: docker ps 
 
   deploy:
     needs: scan
