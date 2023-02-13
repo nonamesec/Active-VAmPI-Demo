@@ -19,7 +19,7 @@ jobs:
         run: docker compose up -d 
       
       - name: test vampi
-        run: sleep 15 && curl -k http://localhost:5002/ --retry 8 --retry-delay 1
+        run: sleep 30 && curl -k http://localhost:5002/ --retry 8 --retry-delay 1
 
       - name: docker login
         uses: docker/login-action@v1
