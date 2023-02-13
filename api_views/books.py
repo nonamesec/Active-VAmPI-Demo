@@ -18,6 +18,7 @@ def get_all_books():
     return return_value
 
 
+
 def add_new_book():
     request_data = request.get_json()
     try:
