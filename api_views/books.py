@@ -13,6 +13,7 @@ def error_message_helper(msg):
     return '{ "status": "fail", "message": "' + msg + '"}'
 
 
+
 def get_all_books():
     return_value = jsonify({'Books': Book.get_all_books()})
     return return_value
